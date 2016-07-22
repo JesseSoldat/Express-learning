@@ -10,10 +10,8 @@ app.set('view engine', 'html');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.route('/').get(function(req, res, next){
-	// res.send('<h1>Hello World</h1>');
-	res.render('index', {})
-})
+require('./routes/routes.js')(express, app);
+
 app.listen(3000, function(){
 	console.log('ChatCAT working on Port 3000');
 })
